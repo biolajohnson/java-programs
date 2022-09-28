@@ -1,0 +1,63 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch CyclicShift",
+            "request": "launch",
+            "mainClass": "CyclicShift",
+            "projectName": "programs_28408860"
+        },
+        {
+            "type": "java",
+            "name": "Launch Exponents",
+            "request": "launch",
+            "mainClass": "Exponents",
+            "projectName": "programs_28408860"
+        },
+        {
+            "type": "java",
+            "name": "Launch GaleShapley",
+            "request": "launch",
+            "mainClass": "GaleShapley",
+            "projectName": "programs_28408860"
+        },
+        {
+            "type": "java",
+            "name": "Launch GraphModels",
+            "request": "launch",
+            "mainClass": "GraphModels",
+            "projectName": "programs_28408860"
+        },
+        {
+            "type": "java",
+            "name": "Launch Palindromes",
+            "request": "launch",
+            "mainClass": "Palindromes",
+            "projectName": "programs_28408860"
+        },
+        {
+            "type": "java",
+            "name": "Launch Scheduler",
+            "request": "launch",
+            "mainClass": "Scheduler",
+            "projectName": "programs_28408860"
+        },
+        {
+            "type": "java",
+            "name": "Launch TrappedWater",
+            "request": "launch",
+            "mainClass": "TrappedWater",
+            "projectName": "programs_28408860"
+        }
+    ]
+}
