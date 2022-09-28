@@ -25,6 +25,22 @@ public class GraphModels {
     }
 
     private static boolean hasOddCycles(List<List<Integer>> graph) {
+        Queue<Integer> queue = new LinkedList<>();
+        Set<Set<Integer>> visited = new HashSet<>();
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            Set<Integer> level = new HashSet<>();
+            for (int i = 0; i < size; i++) {
+                int node = queue.poll();
+                if (level.contains(node)) {
+                    return false;
+                }
+                for (int child : graph.get(node)) {
+                    queue.add(child);
+                }
+            }
+            visited.add(level);
+        }
         return true;
     }
 
