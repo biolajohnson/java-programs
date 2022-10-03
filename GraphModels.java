@@ -198,6 +198,16 @@ class Edge {
     }
 }
 
+class Node {
+    String val;
+    Node parent;
+
+    public Node(String val) {
+        this.val = val;
+        this.parent = this;
+    }
+}
+
 class EdgeComparator implements Comparator<Edge> {
     public int compare(Edge edge1, Edge edge2) {
         return edge1.weight - edge2.weight;
@@ -205,33 +215,37 @@ class EdgeComparator implements Comparator<Edge> {
 }
 
 class UnionFind {
-    Map<String, String> map;
+    Map<String, Node> map;
     int size;
 
     public UnionFind(Set<String> nodes) {
         this.map = new HashMap<>();
-        for (String node : nodes) {
-            map.put(node, node);
+        for (String name : nodes) {
+            map.put(name, new Node(name));
         }
     }
 
-    public String find(String node) {
-        String pointer = node;
-        while (!pointer.equals(map.get(node))) {
-            pointer = map.get(node);
+    public Node find(Node node) {
+        Node pointer = node;
+        while (!(pointer == pointer.parent)) {
+            pointer = pointer.parent;
         }
+
         /* pointer points to root at the end */
         return pointer;
     }
 
-    public void union(String node1, String node2) {
+    public void union(String name1, String name2) {
+        Node node1 = map.get(name1);
+        Node node2 = map.get(name2);
         if (find(node1) == find(node2)) {
             return;
         }
-        map.put(node1, node2);
+        map.put(name2, node1);
+        node2.parent = node1;
     }
 
-    public boolean connected(String node1, String node2) {
-        return find(node1).equals(find(node2));
+    public boolean connected(String name1, String name2) {
+        return find(map.get(name1)) == find(map.get(name2));
     }
 }
