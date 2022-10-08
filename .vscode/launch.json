@@ -6,6 +6,20 @@
     "configurations": [
       {
         "type": "java",
+        "name": "Launch BurstingBalloons",
+        "request": "launch",
+        "mainClass": "BurstingBalloons",
+        "projectName": "programs_28408860"
+      },
+      {
+        "type": "java",
+        "name": "Launch WordSegmentation",
+        "request": "launch",
+        "mainClass": "WordSegmentation",
+        "projectName": "programs_28408860"
+      },
+      {
+        "type": "java",
         "name": "Launch HuffmanCodes",
         "request": "launch",
         "mainClass": "HuffmanCodes",
