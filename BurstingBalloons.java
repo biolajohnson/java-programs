@@ -3,31 +3,28 @@ import java.util.*;
 public class BurstingBalloons {
 
     private static int burstBalloons(List<Integer> balloons) {
-        int max = 0;
-        for (int i = 0; i < balloons.size(); i++) {
-            int soFar = burst(i, balloons, 1);
-            max = Math.max(max, soFar);
-        }
-        return max;
+        balloons.add(0, 1);
+        balloons.add(1);
+        return burst(1, balloons.size() - 2, balloons, new HashMap<>());
     }
 
-    private static int burst(int i, List<Integer> balloons, int soFar) {
-        if (balloons.size() == 0) {
-            return soFar;
+    private static int burst(int left, int right, List<Integer> balloons, Map<String, Integer> map) {
+        if (left > right) {
+            return 0;
         }
-        if (i > 0 && i < balloons.size() - 1) {
-            soFar += (balloons.get(i - 1) * balloons.get(i) * balloons.get(i + 1));
-        } else if (i > 0) {
-            soFar += (balloons.get(i - 1) * balloons.get(i));
-        } else {
-            soFar += balloons.get(i);
+        String key = "" + left + "" + right;
+        if (map.containsKey(key)) {
+            return map.get(key);
         }
-        balloons.remove(i);
-        for (int j = 0; j < balloons.size(); j++) {
-            int maxSoFar = burst(i, balloons, soFar);
-            soFar = Math.max(soFar, maxSoFar);
+        int coins = 0;
+        map.put(key, coins);
+        for (int j = left; j < right + 1; j++) {
+            coins = balloons.get(left - 1) * balloons.get(j) * balloons.get(right + 1);
+            coins += burst(j + 1, right, balloons, map) + burst(left, j - 1, balloons, map);
+            coins = Math.max(map.get("" + left + "" + right), coins);
+            map.put("" + left + "" + right, coins);
         }
-        return soFar;
+        return coins;
     }
 
     private static List<Integer> getList(String line) {
