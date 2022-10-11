@@ -6,6 +6,13 @@
     "configurations": [
       {
         "type": "java",
+        "name": "Launch SequenceAlignment",
+        "request": "launch",
+        "mainClass": "SequenceAlignment",
+        "projectName": "programs_28408860"
+      },
+      {
+        "type": "java",
         "name": "Launch CutRod",
         "request": "launch",
         "mainClass": "CutRod",
