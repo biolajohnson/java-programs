@@ -3,9 +3,42 @@ import java.util.*;
 public class GraphModels {
 
     /*
+     * Bellman-Ford implementation of the dynamic programming algorithm (for
+     * shortest path when
+     * negative edges are included)
+     */
+    public static int bellmanFord(List<List<Integer>> edges, int dest) {
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        Set<Integer> nodes = new HashSet<>();
+        for (List<Integer> edge : edges) {
+            int n = edge.get(0);
+            int m = edge.get(1);
+            nodes.add(n);
+            nodes.add(m);
+            List<Integer> neighbors = map.get(n);
+            if (neighbors == null) {
+                neighbors = new ArrayList<>();
+            } else {
+                neighbors.add(m);
+            }
+        }
+        int n = nodes.size();
+
+        int[][] dp = new int[n][nodes.size()];
+        for (int i = 1; i < n; i++) {
+            for (int v : nodes) {
+                for (int w : map.get(v)) {
+                    dp[i][v] = Math.min(dp[i - 1][v], dp[i - 1][w]);
+                }
+            }
+        }
+        return dp[n - 1][dest];
+    }
+
+    /*
      * implements Dijkstra's algorithm to find the shortest path from start - end
      */
-    public static int shortestDistance(List<List<Integer>> graph, int start, int end) {
+    public static int dijkstra(List<List<Integer>> graph, int start, int end) {
         return 0;
     }
 
