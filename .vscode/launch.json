@@ -6,6 +6,13 @@
     "configurations": [
       {
         "type": "java",
+        "name": "Launch Amazon",
+        "request": "launch",
+        "mainClass": "Amazon",
+        "projectName": "programs_28408860"
+      },
+      {
+        "type": "java",
         "name": "Launch NodeLinkedList",
         "request": "launch",
         "mainClass": "NodeLinkedList",
