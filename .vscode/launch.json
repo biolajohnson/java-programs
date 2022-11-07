@@ -6,6 +6,34 @@
     "configurations": [
       {
         "type": "java",
+        "name": "Launch MedianStream",
+        "request": "launch",
+        "mainClass": "MedianStream",
+        "projectName": "programs_28408860"
+      },
+      {
+        "type": "java",
+        "name": "Launch SeatsArrangments",
+        "request": "launch",
+        "mainClass": "SeatsArrangments",
+        "projectName": "programs_28408860"
+      },
+      {
+        "type": "java",
+        "name": "Launch BinaryManupulations",
+        "request": "launch",
+        "mainClass": "BinaryManupulations",
+        "projectName": "programs_28408860"
+      },
+      {
+        "type": "java",
+        "name": "Launch KnapSack",
+        "request": "launch",
+        "mainClass": "KnapSack",
+        "projectName": "programs_28408860"
+      },
+      {
+        "type": "java",
         "name": "Launch Amazon",
         "request": "launch",
         "mainClass": "Amazon",
