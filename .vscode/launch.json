@@ -6,6 +6,13 @@
     "configurations": [
       {
         "type": "java",
+        "name": "Launch Sorting",
+        "request": "launch",
+        "mainClass": "Sorting",
+        "projectName": "programs_28408860"
+      },
+      {
+        "type": "java",
         "name": "Launch MedianStream",
         "request": "launch",
         "mainClass": "MedianStream",
