@@ -64,6 +64,20 @@ public class TreeTraversals {
         }
     }
 
+    public static void pathsInTree(TreeNode root, String path, List<String> paths) {
+        if (root == null) {
+            return;
+        }
+        path += root.val;
+        if (root.right == null && root.left == null) {
+            paths.add(path);
+        } else {
+            path += "->";
+            pathsInTree(root.left, path, paths);
+            pathsInTree(root.right, path, paths);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What are the elements: ");
@@ -74,6 +88,12 @@ public class TreeTraversals {
         levelOrder(root);
         System.out.println("Spiral level order traversal: ");
         spiralLevelOrder(root);
+        System.out.println("Paths on tree: ");
+        List<String> result = new LinkedList<>();
+        pathsInTree(root, "", result);
+        for (String path : result) {
+            System.out.println(path);
+        }
         scanner.close();
     }
 
