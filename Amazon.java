@@ -7,7 +7,7 @@ public class Amazon {
         int end = 1;
         int groups = 0;
         while (end < ratings.length) {
-            if (ratings[end - 1] - ratings[end] == 1) {
+            if (ratings[end - 1] - ratings[end] >= 1) {
                 groups += end - start;
             } else {
                 start = end;
