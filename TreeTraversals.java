@@ -64,6 +64,42 @@ public class TreeTraversals {
         }
     }
 
+    public static void spiralLevelOrderAlt(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        queue.add(null);
+        LinkedList<String> list = new LinkedList<>();
+        boolean oddSwitch = false;
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node != null) {
+                if (!oddSwitch) {
+                    list.addLast(node.val);
+                } else {
+                    list.addFirst(node.val);
+                }
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            } else {
+                for (String str : list) {
+                    System.out.print(str + " ");
+                }
+                System.out.println();
+                list = new LinkedList<>();
+                if (queue.size() > 0) {
+                    oddSwitch = !oddSwitch;
+                    queue.add(null);
+                }
+            }
+
+        }
+
+    }
+
     public static void pathsInTree(TreeNode root, String path, List<String> paths) {
         if (root == null) {
             return;
@@ -88,6 +124,8 @@ public class TreeTraversals {
         levelOrder(root);
         System.out.println("Spiral level order traversal: ");
         spiralLevelOrder(root);
+        System.out.println("Spiral level order traversal (Alt): ");
+        spiralLevelOrderAlt(root);
         System.out.println("Paths on tree: ");
         List<String> result = new LinkedList<>();
         pathsInTree(root, "", result);
